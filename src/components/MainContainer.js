@@ -1,10 +1,12 @@
 import React from 'react'
 import ButtonList from './ButtonList'
 import VideoContainer from './VideoContainer'
+import { useSelector } from 'react-redux'
 
 const MainContainer = () => {
+  const isMenuOpen = useSelector((store) => store?.app?.isMenuOpen);
   return (
-    <div className=''>
+    <div className={isMenuOpen ? 'left-60 relative w-[calc(100%-280px)]' : 'w-fit '}>
         <ButtonList/>
         <VideoContainer/>
     </div>

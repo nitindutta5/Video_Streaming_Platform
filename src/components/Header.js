@@ -5,7 +5,7 @@ import { toggleMenu } from "../utils/appSlice";
 const Header = () => {
   const dispatch = useDispatch();
   return (
-    <div className="flex justify-between px-2 py-4 mb-2 shadow-lg flex-wrap">
+    <div className="flex justify-between px-4 py-4 shadow-lg flex-wrap fixed w-full bg-white z-40">
       <div className="flex items-center">
         <img
           src="./assets/menu-burger.png"

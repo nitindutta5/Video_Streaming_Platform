@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom'
 const Body = () => {
     const isMenuOpen = useSelector((store) => store?.app?.isMenuOpen);
   return (
-    <div className='flex'>
+    <div className='flex relative top-20'>
        {isMenuOpen && <Sidebar/>}
         {/* <MainContainer/> */}
         <Outlet />
