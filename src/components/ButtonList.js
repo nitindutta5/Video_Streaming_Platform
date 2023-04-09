@@ -2,7 +2,7 @@ import React from 'react'
 
 const ButtonList = () => {
   return (
-    <div>
+    <div className='px-5'>
         <button className='py-1 px-5 m-2 bg-gray-100 rounded-lg border'>All</button>
         <button className='py-1 px-5 m-2 bg-gray-100 rounded-lg border'>Mixes</button>
         <button className='py-1 px-5 m-2 bg-gray-100 rounded-lg border'>Music</button>

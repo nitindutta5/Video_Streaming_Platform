@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/appSlice";
 
 const Watch = () => {
   const dispatch = useDispatch();
   const [params, setParams] = useSearchParams();
-  console.log(params.get("v"));
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+  const isMenuOpen = useSelector((store) => store?.app?.isMenuOpen);
   return (
-    <div>
+    <div className={isMenuOpen ? 'left-60 relative w-[calc(100%-280px)]' : 'w-fit '}>
       <iframe
         width="1200"
         height="600"

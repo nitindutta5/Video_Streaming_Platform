@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { AUTO_SUGGEST_API } from "../utils/constants";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
+  const autoSuggest = async (val) => {
+    const res = await fetch(`${AUTO_SUGGEST_API}${search}`);
+    const data = await res.json();
+    console.log(data);
+  }
+
+  useEffect(() => {
+    autoSuggest(search)
+  }, [search])
   return (
     <div className="flex justify-between px-4 py-4 shadow-lg flex-wrap fixed w-full bg-white z-40">
       <div className="flex items-center">
@@ -25,6 +36,8 @@ const Header = () => {
         <input
           type="text"
           className="border rounded-l-full w-full px-2 focus:outline-none"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <button className="bg-gray-300 px-3 py-1 rounded-r-full">
           <img src="./assets/search.png" className="h-3 m-2" alt="search" />
