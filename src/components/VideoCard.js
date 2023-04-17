@@ -2,12 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const VideoCard = ({ info }) => {
-  console.log(info);
-
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
-  console.log(thumbnails);
-
   return (
     <Link to={`watch?v=${info.id}`}>
       <div className="p-2 m-2 w-[280px]">
